@@ -8,11 +8,26 @@ Date(DD/MM/YY)        Author      Version         Remarks
 import { Box, Container, Grid, Typography } from "@mui/material";
 import BaseContainer from "../container/Container";
 import TextField from "../input/TextField";
+import TextFieldWrapper from "../input/TextField";
+import { TextFieldStyle } from "../input/styles";
+import { Field } from "react-final-form";
+import { useState } from "react";
 
 //Lib
+interface HeroesProps {
+  value: string;
+  onChange?: React.ChangeEventHandler;
+  onPress?: () => any;
+}
 
+const Heroes: React.FC<HeroesProps> = ({ value, onChange, onPress }) => {
+  // const [value, setValue] = useState("");
+  // const handleChange = (event) => {
+  // 	setValue(event.target.value);
+  // };
 
-const Heroes = () => {
+  // console.log("value", value);
+
   return (
     <Box sx={{ backgroundColor: "secondary.light", padding: "5% 15%" }}>
       <Grid container>
@@ -22,18 +37,23 @@ const Heroes = () => {
               fontFamily: "Baloo 2",
               fontWeight: "700",
               color: "secondary.main",
-              fontSize: "20px"
-            }}>
+              fontSize: "20px",
+            }}
+          >
             Find your nearest outlets..
           </Typography>
-          <TextField />
+          <TextFieldWrapper
+            value={value}
+            onChange={onChange}
+            onPress={onPress}
+            hideIcon={true}
+          />
+          {/* <Field component={TextFieldStyle} name="Search" /> */}
         </Grid>
-        <Grid item xs={6}>
-
-        </Grid>
+        <Grid item xs={6}></Grid>
       </Grid>
     </Box>
-  )
-}
+  );
+};
 
 export default Heroes;

@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+yarn.lock
+vite.config.ts
+tsconfig.node.json
+tsconfig.json
+README.md
